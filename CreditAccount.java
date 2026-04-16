@@ -63,7 +63,8 @@ public class CreditAccount extends bankAccount{
         }
     }
 
-    public abstract void deposit(double amount)
+    @Override
+    public void deposit(double amount)
     {
         double tempBal = this.getBalance();
         tempBal += amount;
