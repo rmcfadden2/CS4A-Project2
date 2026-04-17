@@ -37,7 +37,7 @@ public class BankManager
         }
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
+            System.out.println("Canceling Operation...");
         }
 
         return success;
@@ -54,7 +54,7 @@ public class BankManager
         }
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
+            System.out.println("Canceling Operation...");
         }
 
         return success;
@@ -70,7 +70,7 @@ public class BankManager
         }
         catch(Exception e)
         {
-            System.out.println(e.getMessage());
+            System.out.println("Canceling Operation...");
             return success;
         }
 
@@ -81,7 +81,7 @@ public class BankManager
         } 
         catch (Exception e) 
         {
-            System.out.println(e.getMessage());
+            System.out.println("Canceling Operation...");
             Deposit(amount,account1);
         }
 
@@ -120,7 +120,7 @@ public class BankManager
             else
             {
                 Scanner input = new Scanner(System.in);
-                System.out.println("Your accounts:");
+                System.out.println("Account List:");
 
                 for(int i = 0; i < userAccounts.size(); ++i)
                 {
@@ -172,7 +172,7 @@ public class BankManager
 
     public void DisplayAccounts()
     {
-        System.out.println("Account List:");
+        System.out.println("All Accounts:");
 
         for(int i = 0; i < accounts.size(); ++i)
         {
