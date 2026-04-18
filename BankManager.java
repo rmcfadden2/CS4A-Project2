@@ -2,14 +2,14 @@ import java.util.*;
 
 public class BankManager
 {
-    private ArrayList<bankAccount> accounts;
+    private ArrayList<BankAccount> accounts;
 
     public BankManager()
     {
         accounts = new ArrayList<>();
     };
 
-    public boolean AddAccount(bankAccount newAccount)
+    public boolean AddAccount(BankAccount newAccount)
     {
         boolean success = false;
 
@@ -26,7 +26,7 @@ public class BankManager
         return success;
     };
 
-    public boolean Withdraw(double amount, bankAccount account)
+    public boolean Withdraw(double amount, BankAccount account)
     {
         boolean success = false;
 
@@ -43,7 +43,7 @@ public class BankManager
         return success;
     };
 
-    public boolean Deposit(double amount, bankAccount account)
+    public boolean Deposit(double amount, BankAccount account)
     {
         boolean success = false;
 
@@ -60,7 +60,7 @@ public class BankManager
         return success;
     };
 
-    public boolean Transfer(double amount, bankAccount account1, bankAccount account2)
+    public boolean Transfer(double amount, BankAccount account1, BankAccount account2)
     {
         boolean success = false;
 
@@ -88,14 +88,14 @@ public class BankManager
         return success;
     };
 
-    public void DisplayInfo(bankAccount account)
+    public void DisplayInfo(BankAccount account)
     {
         System.out.println(account.toString());    
     };
 
-    public bankAccount FindAccount(String name) throws Exception // replace
+    public BankAccount FindAccount(String name, Scanner input) throws Exception // replace
     {
-        ArrayList<bankAccount> userAccounts = new ArrayList<bankAccount>();
+        ArrayList<BankAccount> userAccounts = new ArrayList<BankAccount>();
         int accountIndex = 0;
 
         try
@@ -119,20 +119,18 @@ public class BankManager
             }
             else
             {
-                Scanner input = new Scanner(System.in);
                 System.out.println("Account List:");
 
                 for(int i = 0; i < userAccounts.size(); ++i)
                 {
-                    System.out.println(i + ": " + userAccounts.get(i).getHolder() + " - " + userAccounts.get(i).getAccountNumber());
+                    System.out.println(i + ": " + userAccounts.get(i).getHolder() + " - Account Num: " + userAccounts.get(i).getAccountNumber());
                 }
 
-                System.out.println("Select the account you want to change:");
+                System.out.print("Select the account: ");
 
                 try
                 {
                     accountIndex = input.nextInt();
-                    input.close();
                 }
                 catch(Exception e)
                 {
@@ -143,12 +141,13 @@ public class BankManager
         catch(Exception e)
         {
             System.out.println(e.getMessage());
+            return null;
         }
 
-        return null;
+        return accounts.get(accountIndex);
     };
 
-    public bankAccount getAccount(String accountNumber) throws Exception // replace
+    public BankAccount getAccount(String accountNumber) throws Exception // replace
     {
         try
         {
@@ -172,11 +171,16 @@ public class BankManager
 
     public void DisplayAccounts()
     {
-        System.out.println("All Accounts:");
+        System.out.println("\nAll Accounts:\n");
 
         for(int i = 0; i < accounts.size(); ++i)
         {
-            System.out.println(i + ": " + accounts.get(i).getHolder() + " - " + accounts.get(i).getAccountNumber());
+            System.out.println("  Holder: " + accounts.get(i).getHolder() + " - Account Num: " + accounts.get(i).getAccountNumber());
         }
     };
+
+    public String GetNewId()
+    {
+        return String.valueOf(accounts.size());
+    }
 }

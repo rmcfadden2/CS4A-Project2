@@ -1,4 +1,4 @@
-public class SavingsAccount extends bankAccount implements InterestBearing {
+public class SavingsAccount extends BankAccount implements InterestBearing {
     // AI ideas
     // private float interestRate;
 

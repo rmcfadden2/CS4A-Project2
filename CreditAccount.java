@@ -1,4 +1,4 @@
-public class CreditAccount extends bankAccount{
+public class CreditAccount extends BankAccount{
     private final double limit;
     private final double withdrawFee;
 

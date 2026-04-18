@@ -1,4 +1,4 @@
-public class BusinessAccount  extends bankAccount {
+public class BusinessAccount  extends BankAccount {
     private String businessName;
     private double minimumBalance;
 

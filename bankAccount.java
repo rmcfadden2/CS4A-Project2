@@ -1,18 +1,18 @@
-public abstract class bankAccount {
+public abstract class BankAccount {
 
     private double balance;
     private String accountHolder;
     private final String accountNumber;
     private final int accountType;
 
-    protected bankAccount() {
+    protected BankAccount() {
         balance = 0;
         accountHolder = "John Doe";
         accountNumber = "00000000";
         accountType = -1;
     }
 
-    protected bankAccount(double balance, String accountHolder, String accountNumber, int accountType) {
+    protected BankAccount(double balance, String accountHolder, String accountNumber, int accountType) {
         this.balance = balance;
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
@@ -20,7 +20,7 @@ public abstract class bankAccount {
     }
 
     //Seperate constructor that doesn't set balance in order for balance to be set seperatly in child class constructors where needed
-    protected bankAccount(String accountHolder, String accountNumber, int accountType) {
+    protected BankAccount(String accountHolder, String accountNumber, int accountType) {
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
@@ -53,10 +53,34 @@ public abstract class bankAccount {
 
     @Override
     public String toString(){
-        return "\nAccount Holder: " + this.accountHolder + 
-                "\nAccount Number: " + this.accountNumber + 
-                "\nAccount Type: " + this.accountType +
-                "\nAccount Balance" + this.balance + "\n";
+        String accountType;
+
+        switch (this.accountType) 
+        {
+            case 1:
+                accountType = "Checking";
+            break;
+
+            case 2:
+                accountType = "Savings";
+            break;
+
+            case 3:
+                accountType = "Credit";
+            break;
+
+            case 4:
+                accountType = "Business";
+            break;
+        
+            default:
+                accountType = "Null";
+        }
+
+        return "\nAccount Holder:  "  + this.accountHolder + 
+                "\nAccount Number:  " + this.accountNumber + 
+                "\nAccount Type:    " + accountType        +
+                "\nAccount Balance: " + this.balance;
     }
 
     //Abstract methods must be created in child classes, throws insufficientFunds commented out until exception is created
