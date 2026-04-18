@@ -8,6 +8,7 @@ public class App
         final double CREDIT_LIMIT = 2000.0;
 
         BankManager manager = new BankManager();
+        SavingsAccount s1 = new SavingsAccount("MeiLI", "12345", 1);
         Scanner     input   = new Scanner(System.in);
         int         menuSelection, accountSelection;
         String      nameInput, nameInput2;

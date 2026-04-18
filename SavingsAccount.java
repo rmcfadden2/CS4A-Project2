@@ -3,9 +3,10 @@ public class SavingsAccount extends BankAccount implements InterestBearing {
     private int withdrawLimit = 400;
     private double interestRate = 0.02;  // Bank defined value
 
-    public SavingsAccount(String holder, String accountNumber)
+    // Account type data type might need to be changed
+    public SavingsAccount(String accountHolder, String accountNumber, int accountType)
     {
-        super(accountHolder, accountNumber, accountType);
+        super(accountHolder, accountNumber, accountType); // Initialize parent attributes
     }
 
     public int getLimit()
@@ -13,29 +14,26 @@ public class SavingsAccount extends BankAccount implements InterestBearing {
         return withdrawLimit;
     }
 
-    // public SavingsAccount() {
-    //     super();
-    //     interestRate = 0.01f; // Default interest rate of 1%
-    // }
-
-    // public SavingsAccount(double balance, String accountHolder, String accountNumber, int accountType, float interestRate) {
-    //     super(balance, accountHolder, accountNumber, accountType);
-    //     this.interestRate = interestRate;
-    // }
-
-    // public SavingsAccount(String accountHolder, String accountNumber, int accountType, float interestRate) {
-    //     super(accountHolder, accountNumber, accountType);
-    //     this.interestRate = interestRate;
-    // }
     @Override
     public double calculateInterest()
     {
-        return balance * interestRate;
+        return getBalance() * interestRate;
     }
 
     @Override
     public void applyInterest() {
-        balance += calculateInterest();
+        setBalance(getBalance() + calculateInterest());
     }
     
+    @Override
+    public void withdraw(double amount) throws InsufficientFundsException {
+        // EXCEPTION THROWING HERE
+        setBalance(getBalance() - amount);
+    }
+
+    @Override
+    public void deposit(double amount) {
+        setBalance(getBalance() + amount);
+    }
+
 }
