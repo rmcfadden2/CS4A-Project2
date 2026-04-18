@@ -90,10 +90,17 @@ public class BankManager
 
     public void displayInfo(BankAccount account)
     {
-        System.out.println(account.toString());    
+        try
+        {
+            System.out.println(account.toString());    
+        }
+        catch(Exception e)
+        {
+            System.out.println("Canceling Operation...");
+        }
     };
 
-    public BankAccount findAccount(String name, Scanner input) throws Exception // replace
+    public BankAccount findAccount(String name, Scanner input) throws AccountNotFoundException
     {
         ArrayList<BankAccount> userAccounts = new ArrayList<BankAccount>();
         int accountIndex = 0;
@@ -115,7 +122,7 @@ public class BankManager
             }
             else if(userAccounts.size() == 0)
             {
-                throw new Exception("No account found.");
+                throw new AccountNotFoundException("No account found.");
             }
             else
             {
@@ -138,7 +145,7 @@ public class BankManager
                 }
             }
         }
-        catch(Exception e)
+        catch(AccountNotFoundException e)
         {
             System.out.println(e.getMessage());
             return null;
@@ -147,7 +154,7 @@ public class BankManager
         return accounts.get(accountIndex);
     };
 
-    public BankAccount getAccount(String accountNumber) throws Exception // replace
+    public BankAccount getAccount(String accountNumber) throws AccountNotFoundException
     {
         try
         {
@@ -159,9 +166,9 @@ public class BankManager
                 }
             }
 
-            throw new Exception("Account not found.");
+            throw new AccountNotFoundException("Account not found.");
         }
-        catch(Exception e)
+        catch(AccountNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
@@ -169,13 +176,25 @@ public class BankManager
         return null;
     }
 
-    public void displayAccounts()
+    public void displayAccounts() throws AccountNotFoundException
     {
-        System.out.println("\nAll Accounts:\n");
-
-        for(int i = 0; i < accounts.size(); ++i)
+        try
         {
-            System.out.println("  Holder: " + accounts.get(i).getHolder() + " - Account Num: " + accounts.get(i).getAccountNumber());
+            if(accounts.size() == 0) 
+            {
+                throw new AccountNotFoundException("No accounts in system.");
+            }
+
+            System.out.println("\nAll Accounts:\n");
+
+            for(int i = 0; i < accounts.size(); ++i)
+            {
+                System.out.println("  Holder: " + accounts.get(i).getHolder() + " - Account Num: " + accounts.get(i).getAccountNumber());
+            }
+        }
+        catch(AccountNotFoundException e)
+        {
+            System.out.println(e.getMessage());
         }
     };
 

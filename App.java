@@ -18,7 +18,7 @@ public class App
 
         do
         {
-            System.out.println("Bank Menu:\n1. Create Account\n2. withdraw Money\n3. deposit Money\n4. transfer Money to Another Account\n5. View Account Info\n6. Show All Account\n7. End of Month Processing");
+            System.out.println("Bank Menu:\n1. Create Account\n2. Withdraw Money\n3. Deposit Money\n4. Transfer Money to Another Account\n5. View Account Info\n6. Show All Accounts\n7. End of Month Processing");
             
             try 
             {
