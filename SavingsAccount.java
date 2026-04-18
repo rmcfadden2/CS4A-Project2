@@ -1,6 +1,17 @@
 public class SavingsAccount extends BankAccount implements InterestBearing {
     // AI ideas
-    // private float interestRate;
+    private int withdrawLimit = 400;
+    private double interestRate = 0.02;  // Bank defined value
+
+    public SavingsAccount(String holder, String accountNumber)
+    {
+        super(accountHolder, accountNumber, accountType);
+    }
+
+    public int getLimit()
+    {
+        return withdrawLimit;
+    }
 
     // public SavingsAccount() {
     //     super();
@@ -16,12 +27,15 @@ public class SavingsAccount extends BankAccount implements InterestBearing {
     //     super(accountHolder, accountNumber, accountType);
     //     this.interestRate = interestRate;
     // }
+    @Override
+    public double calculateInterest()
+    {
+        return balance * interestRate;
+    }
 
-    // @Override
-    // public float applyInterest() {
-    //     double newBalance = getBalance() + (getBalance() * interestRate);
-    //     setBalance(newBalance);
-    //     return newBalance;
-    // }
+    @Override
+    public void applyInterest() {
+        balance += calculateInterest();
+    }
     
 }
