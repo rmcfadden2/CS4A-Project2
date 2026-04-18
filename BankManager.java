@@ -9,7 +9,7 @@ public class BankManager
         accounts = new ArrayList<>();
     };
 
-    public boolean AddAccount(BankAccount newAccount)
+    public boolean addAccount(BankAccount newAccount)
     {
         boolean success = false;
 
@@ -26,7 +26,7 @@ public class BankManager
         return success;
     };
 
-    public boolean Withdraw(double amount, BankAccount account)
+    public boolean withdraw(double amount, BankAccount account)
     {
         boolean success = false;
 
@@ -43,7 +43,7 @@ public class BankManager
         return success;
     };
 
-    public boolean Deposit(double amount, BankAccount account)
+    public boolean deposit(double amount, BankAccount account)
     {
         boolean success = false;
 
@@ -60,13 +60,13 @@ public class BankManager
         return success;
     };
 
-    public boolean Transfer(double amount, BankAccount account1, BankAccount account2)
+    public boolean transfer(double amount, BankAccount account1, BankAccount account2)
     {
         boolean success = false;
 
         try
         {
-            Withdraw(amount,account1);
+            withdraw(amount,account1);
         }
         catch(Exception e)
         {
@@ -76,24 +76,24 @@ public class BankManager
 
         try 
         {
-            Deposit(amount,account2);
+            deposit(amount,account2);
             success = true;
         } 
         catch (Exception e) 
         {
             System.out.println("Canceling Operation...");
-            Deposit(amount,account1);
+            deposit(amount,account1);
         }
 
         return success;
     };
 
-    public void DisplayInfo(BankAccount account)
+    public void displayInfo(BankAccount account)
     {
         System.out.println(account.toString());    
     };
 
-    public BankAccount FindAccount(String name, Scanner input) throws Exception // replace
+    public BankAccount findAccount(String name, Scanner input) throws Exception // replace
     {
         ArrayList<BankAccount> userAccounts = new ArrayList<BankAccount>();
         int accountIndex = 0;
@@ -169,7 +169,7 @@ public class BankManager
         return null;
     }
 
-    public void DisplayAccounts()
+    public void displayAccounts()
     {
         System.out.println("\nAll Accounts:\n");
 
@@ -179,7 +179,7 @@ public class BankManager
         }
     };
 
-    public String GetNewId()
+    public String getNewId()
     {
         return String.valueOf(accounts.size());
     }
