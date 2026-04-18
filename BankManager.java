@@ -183,20 +183,13 @@ public class BankManager
     {
         return String.valueOf(accounts.size());
     }
-}
-// WIP
-// // Testing things
-// // Automation of applying interest to interest accruing
-// // accounts
-// public void applyMonthlyInterest()
-// {
-//     for(BankAccount account : accounts)
-//     {
-//         if(account instanceof InterestBearing)
-//         {
-//             // Calculate interest
-//             ((InterestBearing) account).applyInterest();
-//         }
-//     }
-// }
 
+    // Bank manager should be able to apply interest to a customer's accounts:
+    public void applyInterest() {
+    for (BankAccount acc : accounts) {
+        if (acc instanceof InterestBearing) {
+            ((InterestBearing) acc).applyInterest();
+        }
+    }
+}
+}

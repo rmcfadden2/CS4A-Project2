@@ -8,7 +8,6 @@ public class App
         final double CREDIT_LIMIT = 2000.0;
 
         BankManager manager = new BankManager();
-        SavingsAccount s1 = new SavingsAccount("MeiLI", "12345", 1);
         Scanner     input   = new Scanner(System.in);
         int         menuSelection, accountSelection;
         String      nameInput, nameInput2;
@@ -19,7 +18,7 @@ public class App
 
         do
         {
-            System.out.println("Bank Menu:\n1. Create Account\n2. withdraw Money\n3. deposit Money\n4. transfer Money to Another Account\n5. View Account Info\n6. Show All Account");
+            System.out.println("Bank Menu:\n1. Create Account\n2. withdraw Money\n3. deposit Money\n4. transfer Money to Another Account\n5. View Account Info\n6. Show All Account\n7. End of Month Processing");
             
             try 
             {
@@ -46,7 +45,8 @@ public class App
                             break;
 
                             case 2:
-                                //manager.addAccount(new SavingsAccount(nameInput,manager.getNewId(),accountSelection,0.1));
+                                manager.addAccount(new SavingsAccount(nameInput,manager.getNewId(),accountSelection));
+                                manager.applyInterest();
                             break;
 
                             case 3:
@@ -117,7 +117,12 @@ public class App
                     case 6: // View All Accounts
                         manager.displayAccounts();
                     break;
-                
+                    // I'm not sure if we can keep case 7 because it blurs the lines of customer
+                    // ability vs. bank ability to do things. 
+                    case 7:
+                        manager.applyInterest();
+                        System.out.println("Monthly interest applied.");
+                    break;
                     default:
                         throw new Exception("Exiting...");
                 }    
@@ -130,7 +135,7 @@ public class App
                 continue;
             }
         }
-        while(menuSelection > 0 && menuSelection < 7);
+        while(menuSelection > 0 && menuSelection < 8);
 
         input.close();
     }

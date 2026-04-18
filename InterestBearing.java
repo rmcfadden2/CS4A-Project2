@@ -3,7 +3,6 @@ public interface InterestBearing {
      * between all classes that extend Interface
      * Each subclass will define its own rate
     */  
-
     void applyInterest();
     double calculateInterest();
     int getLimit();

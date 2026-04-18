@@ -1,5 +1,4 @@
 public class SavingsAccount extends BankAccount implements InterestBearing {
-    // AI ideas
     private int withdrawLimit = 400;
     private double interestRate = 0.02;  // Bank defined value
 
@@ -7,6 +6,7 @@ public class SavingsAccount extends BankAccount implements InterestBearing {
     public SavingsAccount(String accountHolder, String accountNumber, int accountType)
     {
         super(accountHolder, accountNumber, accountType); // Initialize parent attributes
+        this.interestRate = 0.02;
     }
 
     public int getLimit()

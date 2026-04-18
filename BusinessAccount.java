@@ -49,23 +49,23 @@ public class BusinessAccount  extends BankAccount {
     @Override
     public void withdraw(double amount) //throws insufficientFunds;
     {
-        try
-        {
-            double tempBal = this.getBalance();
-            tempBal -= amount;
-            if(tempBal < this.minimumBalance)
-            {
-                // need exception class
-            }
-            else
-            {
-                this.setBalance(tempBal);
-            }
-        }
-        catch()
-        {
+        // try
+        // {
+        //     double tempBal = this.getBalance();
+        //     tempBal -= amount;
+        //     if(tempBal < this.minimumBalance)
+        //     {
+        //         // need exception class
+        //     }
+        //     else
+        //     {
+        //         this.setBalance(tempBal);
+        //     }
+        // }
+        // catch()
+        // {
 
-        }
+        // }
     }
 
     @Override

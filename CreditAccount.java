@@ -44,23 +44,23 @@ public class CreditAccount extends BankAccount{
     @Override
     public void withdraw(double amount)//throws insufficientFunds;
     {
-        try
-        {
-            double tempBal = this.getBalance();
-            tempBal -= (amount + withdrawFee);
-            if(tempBal < (limit * -1))
-            {
-                // need exception class
-            }
-            else
-            {
-                this.setBalance(tempBal);
-            }
-        }
-        catch()
-        {
-            // need exception class
-        }
+        // try
+        // {
+        //     double tempBal = this.getBalance();
+        //     tempBal -= (amount + withdrawFee);
+        //     if(tempBal < (limit * -1))
+        //     {
+        //         // need exception class
+        //     }
+        //     else
+        //     {
+        //         this.setBalance(tempBal);
+        //     }
+        // }
+        // catch()
+        // {
+        //     // need exception class
+        // }
     }
 
     @Override
