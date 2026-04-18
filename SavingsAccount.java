@@ -1,12 +1,11 @@
 public class SavingsAccount extends BankAccount implements InterestBearing {
-    private int withdrawLimit = 400;
+    private final int withdrawLimit = 400;
     private double interestRate = 0.02;  // Bank defined value
 
     // Account type data type might need to be changed
     public SavingsAccount(String accountHolder, String accountNumber, int accountType)
     {
         super(accountHolder, accountNumber, accountType); // Initialize parent attributes
-        this.interestRate = 0.02;
     }
 
     public int getLimit()
