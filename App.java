@@ -4,7 +4,7 @@ public class App
 {
     public static void main(String[] args) throws Exception
     {
-        final double wITHDRAW_FEE = 2.5;
+        final double WITHDRAW_FEE = 2.5;
         final double CREDIT_LIMIT = 2000.0;
 
         BankManager manager = new BankManager();
@@ -41,7 +41,7 @@ public class App
                         switch(accountSelection)
                         {
                             case 1:
-                                manager.addAccount(new CheckingAccount(nameInput,manager.getNewId(),accountSelection,wITHDRAW_FEE));
+                                manager.addAccount(new CheckingAccount(nameInput,manager.getNewId(),accountSelection,WITHDRAW_FEE));
                             break;
 
                             case 2:
@@ -49,7 +49,7 @@ public class App
                             break;
 
                             case 3:
-                                manager.addAccount(new CreditAccount(nameInput,manager.getNewId(),accountSelection,CREDIT_LIMIT,wITHDRAW_FEE));
+                                manager.addAccount(new CreditAccount(nameInput,manager.getNewId(),accountSelection,CREDIT_LIMIT,WITHDRAW_FEE));
                             break;
 
                             case 4:
