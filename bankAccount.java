@@ -84,7 +84,7 @@ public abstract class BankAccount {
     }
 
     //Abstract methods must be created in child classes, throws insufficientFunds commented out until exception is created
-    public abstract void withdraw(double amount); //throws insufficientFunds;
+    public abstract void withdraw(double amount) throws InsufficientFundsException;
     public abstract void deposit(double amount);
 
 }
