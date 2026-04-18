@@ -179,4 +179,22 @@ public class BankManager
             System.out.println(i + ": " + accounts.get(i).getHolder() + " - " + accounts.get(i).getAccountNumber());
         }
     };
+// WIP
+// // Testing things
+// // Automation of applying interest to interest accruing
+// // accounts
+// public void applyMonthlyInterest()
+// {
+//     for(BankAccount account : accounts)
+//     {
+//         if(account instanceof InterestBearing)
+//         {
+//             // Calculate interest
+//             ((InterestBearing) account).applyInterest();
+//         }
+//     }
+// }
+
+
 }
+
