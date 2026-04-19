@@ -1,6 +1,7 @@
-public class CreditAccount extends BankAccount{
+public class CreditAccount extends bankAccount implements InterestBearing {
     private final double limit;
     private final double withdrawFee;
+    private final double interestRate = 0.05;
 
     CreditAccount()
     {
@@ -42,25 +43,18 @@ public class CreditAccount extends BankAccount{
     }
 
     @Override
-    public void withdraw(double amount)//throws insufficientFunds;
+    public void withdraw(double amount) throws InsufficientFundsException
     {
-        // try
-        // {
-        //     double tempBal = this.getBalance();
-        //     tempBal -= (amount + withdrawFee);
-        //     if(tempBal < (limit * -1))
-        //     {
-        //         // need exception class
-        //     }
-        //     else
-        //     {
-        //         this.setBalance(tempBal);
-        //     }
-        // }
-        // catch()
-        // {
-        //     // need exception class
-        // }
+        double tempBal = this.getBalance();
+        tempBal -= (amount + withdrawFee);
+        if(tempBal < (limit * -1))
+        {
+            throw new InsufficientFundsException("Unable to withdraw " + amount);
+        }
+        else
+        {
+            this.setBalance(tempBal);
+        }
     }
 
     @Override
@@ -69,6 +63,25 @@ public class CreditAccount extends BankAccount{
         double tempBal = this.getBalance();
         tempBal += amount;
         this.setBalance(tempBal);
+    }
+
+    @Override
+    public void applyInterest()
+    {
+        double interest = calculateInterest();
+        deposit(interest);
+    }
+
+    @Override
+    public double calculateInterest()
+    {
+        return getBalance() * interestRate;
+    }
+
+    @Override
+    public int getLimit()
+    {
+        
     }
 
 }

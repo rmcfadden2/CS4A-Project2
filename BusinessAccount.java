@@ -1,6 +1,7 @@
-public class BusinessAccount  extends BankAccount {
+public class BusinessAccount  extends bankAccount implements InterestBearing {
     private String businessName;
     private double minimumBalance;
+    private final double interestRate = 0.03;
 
     BusinessAccount()
     {
@@ -47,25 +48,18 @@ public class BusinessAccount  extends BankAccount {
     }
 
     @Override
-    public void withdraw(double amount) //throws insufficientFunds;
+    public void withdraw(double amount) throws InsufficientFundsException
     {
-        // try
-        // {
-        //     double tempBal = this.getBalance();
-        //     tempBal -= amount;
-        //     if(tempBal < this.minimumBalance)
-        //     {
-        //         // need exception class
-        //     }
-        //     else
-        //     {
-        //         this.setBalance(tempBal);
-        //     }
-        // }
-        // catch()
-        // {
-
-        // }
+        double tempBal = this.getBalance();
+        tempBal -= amount;
+        if(tempBal < this.minimumBalance)
+        {
+            throw new InsufficientFundsException("Unable to withdraw " + amount);
+        }
+        else
+        {
+            this.setBalance(tempBal);
+        }
     }
 
     @Override
@@ -74,5 +68,23 @@ public class BusinessAccount  extends BankAccount {
         double tempBal = this.getBalance();
         tempBal += amount;
         this.setBalance(tempBal);
+    }
+
+    @Override
+    public void applyInterest()
+    {
+        double interest = calculateInterest();
+        deposit(interest);
+    }
+
+    @Override
+    public double calculateInterest()
+    {
+        return getBalance() * interestRate;
+    }
+
+    @Override
+    public int getLimit()
+    {
     }
 }
