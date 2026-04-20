@@ -32,12 +32,17 @@ public class BankManager
 
         try
         {
+            if(amount <= 0)
+            {
+                throw new Exception("Cannot withdraw amount.");
+            }
+
             account.withdraw(amount);
             success = true;
         }
         catch(Exception e)
         {
-            System.out.println("Canceling Operation...");
+            System.out.println(e.getMessage());
         }
 
         return success;
@@ -49,12 +54,17 @@ public class BankManager
 
         try
         {
+            if(amount <= 0)
+            {
+                throw new Exception("Cannot deposit amount.");
+            }
+
             account.deposit(amount);
             success = true;
         }
         catch(Exception e)
         {
-            System.out.println("Canceling Operation...");
+            System.out.println(e.getMessage());
         }
 
         return success;

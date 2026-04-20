@@ -1,4 +1,4 @@
-public class BusinessAccount  extends bankAccount implements InterestBearing {
+public class BusinessAccount  extends BankAccount implements InterestBearing {
     private String businessName;
     private double minimumBalance;
     private final double interestRate = 0.03;
@@ -81,10 +81,5 @@ public class BusinessAccount  extends bankAccount implements InterestBearing {
     public double calculateInterest()
     {
         return getBalance() * interestRate;
-    }
-
-    @Override
-    public int getLimit()
-    {
     }
 }

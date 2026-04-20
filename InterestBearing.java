@@ -5,5 +5,4 @@ public interface InterestBearing {
     */  
     void applyInterest();
     double calculateInterest();
-    int getLimit();
 }

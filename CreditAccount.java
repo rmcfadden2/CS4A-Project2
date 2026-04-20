@@ -1,4 +1,4 @@
-public class CreditAccount extends bankAccount implements InterestBearing {
+public class CreditAccount extends BankAccount implements InterestBearing {
     private final double limit;
     private final double withdrawFee;
     private final double interestRate = 0.05;
@@ -30,11 +30,6 @@ public class CreditAccount extends bankAccount implements InterestBearing {
         super(accountHolder, accountNumber, accountType);
         this.limit = 1000;
         this.withdrawFee = 100;
-    }
-
-    public double getLimit()
-    {
-        return this.limit;
     }
 
     public double getWithdrawFee()
@@ -76,12 +71,6 @@ public class CreditAccount extends bankAccount implements InterestBearing {
     public double calculateInterest()
     {
         return getBalance() * interestRate;
-    }
-
-    @Override
-    public int getLimit()
-    {
-        
     }
 
 }

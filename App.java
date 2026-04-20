@@ -41,7 +41,7 @@ public class App
                         switch(accountSelection)
                         {
                             case 1:
-                                manager.addAccount(new CheckingAccount(nameInput,manager.getNewId(),accountSelection,WITHDRAW_FEE));
+                                manager.addAccount(new CheckingAccount(nameInput,manager.getNewId(),accountSelection));
                             break;
 
                             case 2:
