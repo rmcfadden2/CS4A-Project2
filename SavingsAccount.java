@@ -8,11 +8,6 @@ public class SavingsAccount extends BankAccount implements InterestBearing {
         super(accountHolder, accountNumber, accountType); // Initialize parent attributes
     }
 
-    public int getLimit()
-    {
-        return withdrawLimit;
-    }
-
     @Override
     public double calculateInterest()
     {
@@ -26,7 +21,14 @@ public class SavingsAccount extends BankAccount implements InterestBearing {
     
     @Override
     public void withdraw(double amount) throws InsufficientFundsException {
-        // EXCEPTION THROWING HERE
+        if(amount > withdrawLimit)
+        {
+            throw new InsufficientFundsException("Exceeds withdraw limit.");
+        }
+        if(amount > getBalance())
+        {
+            throw new InsufficientFundsException("Insufficient funds.");
+        }
         setBalance(getBalance() - amount);
     }
 

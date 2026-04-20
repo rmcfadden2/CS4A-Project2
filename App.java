@@ -46,7 +46,6 @@ public class App
 
                             case 2:
                                 manager.addAccount(new SavingsAccount(nameInput,manager.getNewId(),accountSelection));
-                                manager.applyInterest();
                             break;
 
                             case 3:
@@ -116,9 +115,7 @@ public class App
 
                     case 6: // View All Accounts
                         manager.displayAccounts();
-                    break;
-                    // I'm not sure if we can keep case 7 because it blurs the lines of customer
-                    // ability vs. bank ability to do things. 
+                    break; 
                     case 7:
                         manager.applyInterest();
                         System.out.println("Monthly interest applied.");
