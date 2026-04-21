@@ -114,7 +114,7 @@ public class BankManager
     {
         ArrayList<BankAccount> userAccounts = new ArrayList<BankAccount>();
         int accountIndex = 0;
-
+        // Doing too much
         try
         {
             for(int i = 0; i < accounts.size(); ++i)
