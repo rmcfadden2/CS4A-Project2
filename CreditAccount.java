@@ -2,22 +2,23 @@ public class CreditAccount extends BankAccount implements InterestBearing {
     private final double limit;
     private final double withdrawFee;
     private final double interestRate = 0.05;
-
-    CreditAccount()
+    // Constructors are public so it is 
+    // accesible from App
+    public CreditAccount()
     {
         super();
         this.limit = 1000;
         this.withdrawFee = 100;
     }
 
-    CreditAccount(double balance, String accountHolder, String accountNumber, int accountType, double limit, double withdrawFee)
+    public CreditAccount(double balance, String accountHolder, String accountNumber, int accountType, double limit, double withdrawFee)
     {
         super(balance, accountHolder, accountNumber, accountType);
         this.limit = limit;
         this.withdrawFee = withdrawFee;
     }
 
-    CreditAccount(String accountHolder, String accountNumber, int accountType, double limit, double withdrawFee)
+    public CreditAccount(String accountHolder, String accountNumber, int accountType, double limit, double withdrawFee)
     {
         super(accountHolder, accountNumber, accountType);
         this.limit = limit;
@@ -25,7 +26,7 @@ public class CreditAccount extends BankAccount implements InterestBearing {
     }
 
 
-    CreditAccount(String accountHolder, String accountNumber, int accountType)
+    public CreditAccount(String accountHolder, String accountNumber, int accountType)
     {
         super(accountHolder, accountNumber, accountType);
         this.limit = 1000;

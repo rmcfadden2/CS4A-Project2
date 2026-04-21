@@ -2,29 +2,30 @@ public class CheckingAccount extends BankAccount
 {
     private final float overdraftFee;
     private final float overdraftLimit;
-
-    CheckingAccount()
+    // Constructors are public so it is accesible 
+    // from App
+    public CheckingAccount()
     {
         super();
         this.overdraftFee = 50.0f;
         this.overdraftLimit = 0.0f;
     }
 
-    CheckingAccount(double balance, String accountHolder, String accountNumber, int accountType, double withdrawFee)
+    public CheckingAccount(double balance, String accountHolder, String accountNumber, int accountType, double withdrawFee)
     {
         super(balance, accountHolder, accountNumber, accountType);
         this.overdraftFee = 50.0f;
         this.overdraftLimit = 1000.0f;
     }
 
-    CheckingAccount(String accountHolder, String accountNumber, int accountType, double withdrawFee)
+    public CheckingAccount(String accountHolder, String accountNumber, int accountType, double withdrawFee)
     {
         super(accountHolder, accountNumber, accountType);
         this.overdraftFee = 50.0f;
         this.overdraftLimit = 1000.0f;
     }
 
-    CheckingAccount(String accountHolder, String accountNumber, int accountType)
+    public CheckingAccount(String accountHolder, String accountNumber, int accountType)
     {
         super(accountHolder, accountNumber, accountType);
         this.overdraftFee = 50.0f;

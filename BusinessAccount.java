@@ -3,14 +3,14 @@ public class BusinessAccount  extends BankAccount implements InterestBearing {
     private double minimumBalance;
     private final double interestRate = 0.03;
 
-    BusinessAccount()
+    public BusinessAccount()
     {
         super();
         businessName = "Business Name";
         minimumBalance = 10000;
     }
     
-    BusinessAccount(double balance, String accountHolder, String accountNumber,
+    public BusinessAccount(double balance, String accountHolder, String accountNumber,
                      int accountType, String businessName, double minimumBalance)
     {
         super(balance, accountHolder, accountNumber, accountType);
@@ -18,14 +18,14 @@ public class BusinessAccount  extends BankAccount implements InterestBearing {
         this.minimumBalance = minimumBalance;
     }
 
-    BusinessAccount(String accountHolder, String accountNumber, int accountType, String businessName, double minimumBalance)
+    public BusinessAccount(String accountHolder, String accountNumber, int accountType, String businessName, double minimumBalance)
     {
         super(accountHolder, accountNumber, accountType);
         this.businessName = businessName;
         this.minimumBalance = minimumBalance;
     }
 
-    BusinessAccount(String accountHolder, String accountNumber, int accountType, String businessName)
+    public BusinessAccount(String accountHolder, String accountNumber, int accountType, String businessName)
     {
         super(accountHolder, accountNumber, accountType);
         this.businessName = businessName;
